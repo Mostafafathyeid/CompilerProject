@@ -10,7 +10,7 @@ public class blockListener extends JavaParserBaseListener{
     }
     @Override public void enterBlock(JavaParser.BlockContext ctx) {
         this.i++;
-        rewriter.insertAfter(ctx.getStart(),"//block number " + this.i);
+        rewriter.insertAfter(ctx.getStart(),"//block number " + this.i+"\n");
 
     }
     @Override public void exitBlock(JavaParser.BlockContext ctx) {
