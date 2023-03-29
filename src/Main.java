@@ -16,9 +16,9 @@ public class Main {
         TokenStreamRewriter rewriter = new TokenStreamRewriter(tokens);
         walker.walk(new blockListener(rewriter), tree);
 
-        File output = new File("output.txt");
+        File output = new File("output.java");
         output.createNewFile();
-        FileWriter w = new FileWriter("output.txt");
+        FileWriter w = new FileWriter("output.java");
         w.write(rewriter.getText());
         w.close();
         //System.out.println(rewriter.getText());
