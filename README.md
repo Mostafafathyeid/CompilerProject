@@ -47,3 +47,7 @@ the file should look like this
 
  block number 3 is visited
 #### modified java file :
+![3aaaaaaaaaaa](https://user-images.githubusercontent.com/66273172/228578719-553d9a61-ff09-4388-b913-3ff1b94e306e.png)
+#### output text file :
+
+![blockk](https://user-images.githubusercontent.com/66273172/228578726-9c54d287-66ba-4455-8f2b-ad928c47c2e6.png)
