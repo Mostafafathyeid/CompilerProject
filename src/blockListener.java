@@ -1,6 +1,9 @@
 import org.antlr.v4.runtime.TokenStreamRewriter;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+import java.io.File;
+import java.io.FileWriter;
+
 public class blockListener extends JavaParserBaseListener{
     int i;
     TokenStreamRewriter rewriter;
@@ -11,6 +14,17 @@ public class blockListener extends JavaParserBaseListener{
     @Override public void enterBlock(JavaParser.BlockContext ctx) {
         this.i++;
         rewriter.insertAfter(ctx.getStart(),"//block number " + this.i+"\n");
+        if(i==1) {
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"File output = new File(\"output.txt\");"+"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"output.createNewFile();"+"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"FileWriter w = new FileWriter(\"output.txt\");"+"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"w.write(\"block "+ this.i + " is Visited \" +\"\\n\");"  +"\n");
+
+            rewriter.insertBefore(ctx.getStop(),"w.close();"+"\n");
+        }
+        else{
+            rewriter.insertBefore(ctx.getStop(),"w.write(\"block "+ this.i + " is Visited\" +\"\\n\");"  +"\n");
+        }
 
     }
     @Override public void exitBlock(JavaParser.BlockContext ctx) {
