@@ -1,4 +1,6 @@
-import java.io.*;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.File;
 public class Example {
     public static void main(String[] args) throws Exception{//block number 1
 		File output = new File("output.txt");
