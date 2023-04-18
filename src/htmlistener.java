@@ -54,13 +54,11 @@ public class htmlistener extends JavaParserBaseListener {//color all green and n
         rewriter.insertAfter(ctx.getStop(),"</pre>\n");
         rewriter.insertAfter(ctx.getStop(),"</body>\n");
         rewriter.insertAfter(ctx.getStop(),"</html>\n");
-    }
-    @Override
-    public void exitCompilationUnit(JavaParser.CompilationUnitContext ctx) {
         rewriter.insertAfter(ctx.getStop(), "</pre>\n");
         rewriter.insertAfter(ctx.getStop(), "</body>\n");
         rewriter.insertAfter(ctx.getStop(), "</html>\n");
     }
+
 
     @Override
     public void visitTerminal(TerminalNode node) {
@@ -113,6 +111,9 @@ public class htmlistener extends JavaParserBaseListener {//color all green and n
             exp = false;
         }
     }
+
+
+
 
 
 }
