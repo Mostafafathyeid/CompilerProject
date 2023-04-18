@@ -54,9 +54,9 @@ the file should look like this
 ![blockk](https://user-images.githubusercontent.com/66273172/228578726-9c54d287-66ba-4455-8f2b-ad928c47c2e6.png)
 #### second output text file :
 ![vsiitexp](https://user-images.githubusercontent.com/66273172/232833952-9a58f038-8c82-48f8-bdca-950b68de07a3.png)
-- ### final step :
+### final step :
 - when you run the output from second steps it will generate an HTML file with highlighted red, green and orange lines as program output
-- ![Screenshot 2023-04-18 174011](https://user-images.githubusercontent.com/66273172/232834978-bedeadeb-4baf-4490-8339-00c5d92f9080.png)
+![Screenshot 2023-04-18 174011](https://user-images.githubusercontent.com/66273172/232834978-bedeadeb-4baf-4490-8339-00c5d92f9080.png)
 
 ### note:
 
