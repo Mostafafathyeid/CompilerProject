@@ -18,27 +18,28 @@ public class blockListener extends JavaParserBaseListener{
 
 
         if(i==1) {
-            rewriter.insertBefore(ctx.getStart(),"throws Exception");
 
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"try{\n");
             rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"File output = new File(\"output.txt\");"+"\n");
             rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"output.createNewFile();"+"\n");
-            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"FileWriter w = new FileWriter(\"output.txt\");"+"\n");
-            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"w.write(\"block "+ this.i + " is Visited \" +\"\\n\");"  +"\n");
 
-            rewriter.insertBefore(ctx.getStop(),"w.close();"+"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"FileWriter w"+this.i+" = new FileWriter(\"output.txt\",true);"+"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"w"+this.i+".write(\"block "+ this.i + " is Visited\"+\"\\n\");"  +"\n");
+
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"w"+this.i+".close();"+"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"}catch (IOException e) {throw new RuntimeException(e);}\n");
         }
         else{
-            rewriter.insertBefore(ctx.getStop(),"w.write(\"block "+ this.i + " is Visited\" +\"\\n\");"  +"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"try{\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"FileWriter w"+this.i+" = new FileWriter(\"output.txt\",true);"+"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"w"+this.i+".write(\"block "+ this.i + " is Visited\"+\"\\n\");"  +"\n");
+
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"w"+this.i+".close();"+"\n");
+            rewriter.insertAfter(ctx.getStart(),"\t"+"\t"+"}catch (IOException e) {throw new RuntimeException(e);}\n");
         }
 
     }
-    @Override public void exitBlock(JavaParser.BlockContext ctx) {
 
-    }
-    @Override public void visitTerminal(TerminalNode node) {
-        //System.out.println(node.getText());
-
-    }
 
     @Override public void enterCompilationUnit(JavaParser.CompilationUnitContext ctx) {
         rewriter.insertBefore(ctx.getStart(),"import java.io.File;"+"\n");
