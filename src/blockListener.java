@@ -61,9 +61,9 @@ public class blockListener extends JavaParserBaseListener {
                 "\t"  +" }\n");
 
     }
-//    @Override public void visitTerminal(TerminalNode node) {
-//        if(node.getText().equals("||")||node.getText().equals("&&")){exp=true;}
-//    }
+   @Override public void visitTerminal(TerminalNode node) {
+       if(node.getText().equals("||")||node.getText().equals("&&")){exp=true;}
+   }
 
 
     @Override
