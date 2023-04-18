@@ -40,14 +40,25 @@ should look like this :
 
 when you run The modified intermediate java file (generated from the previous step)
 to know which blocks of the code are visited (A file has to be generated after the
-program run that shows which blocks are visited).
+program run that shows which blocks are visited) and stamentent coverd.
 the file should look like this
 
  block number 1 is visited
 
  block number 3 is visited
 #### modified java file :
-![3aaaaaaaaaaa](https://user-images.githubusercontent.com/66273172/228578719-553d9a61-ff09-4388-b913-3ff1b94e306e.png)
-#### output text file :
+![modifiied](https://user-images.githubusercontent.com/66273172/232833632-20af2025-b202-47bc-9c64-2e5bf21f5420.png)
+
+#### first output text file :
 
 ![blockk](https://user-images.githubusercontent.com/66273172/228578726-9c54d287-66ba-4455-8f2b-ad928c47c2e6.png)
+#### second output text file :
+![vsiitexp](https://user-images.githubusercontent.com/66273172/232833952-9a58f038-8c82-48f8-bdca-950b68de07a3.png)
+- ### final step :
+- when you run the output from second steps it will generate an HTML file with highlighted red, green and orange lines as program output
+- ![Screenshot 2023-04-18 174011](https://user-images.githubusercontent.com/66273172/232834978-bedeadeb-4baf-4490-8339-00c5d92f9080.png)
+### note:
++ Green lines are highlighted for visited lines.
+= Orange lines are highlighted for branches (if/else/for/while) if the boolean expression has more than one condition, like a || b, and the first condition always  evaluate to true, this means that the second condition b never executed.
++ Red lines are highlighted for not visited lines.
+
