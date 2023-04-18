@@ -59,6 +59,6 @@ the file should look like this
 - ![Screenshot 2023-04-18 174011](https://user-images.githubusercontent.com/66273172/232834978-bedeadeb-4baf-4490-8339-00c5d92f9080.png)
 ### note:
 + Green lines are highlighted for visited lines.
-= Orange lines are highlighted for branches (if/else/for/while) if the boolean expression has more than one condition, like a || b, and the first condition always  evaluate to true, this means that the second condition b never executed.
++ Orange lines are highlighted for branches (if/else/for/while) if the boolean expression has more than one condition, like a || b, and the first condition always  evaluate to true, this means that the second condition b never executed.
 + Red lines are highlighted for not visited lines.
 
