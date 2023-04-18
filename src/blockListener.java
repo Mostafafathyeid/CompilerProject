@@ -51,6 +51,39 @@ public class blockListener extends JavaParserBaseListener {
         rewriter.insertBefore(ctx.getStart(), "import java.io.IOException;" + "\n");
     }
 
-    
+    @Override public void enterClassBody(JavaParser.ClassBodyContext ctx) {
+        rewriter.insertAfter(ctx.getStart(),"public static boolean check(int numexp) {\n" +
+                "\t"  +   " try{FileWriter myWriter = new FileWriter(\"visitexpr.txt\",true);\n" +
+                "\t"  +"  myWriter.write(\"exp\"+numexp+\"is visited\\n\");\n" +
+                "\t"  +" myWriter.close();\n}" +
+                "\t"  +" catch(Exception e){}\n"+
+                "\t"  +" return false;\n" +
+                "\t"  +" }\n");
+
+    }
+    @Override public void visitTerminal(TerminalNode node) {
+        if(node.getText().equals("||")||node.getText().equals("&&")){exp=true;}
+    }
+
+
+    @Override
+    public void enterParExpression(JavaParser.ParExpressionContext ctx) {exp=true;}
+
+    @Override
+    public void enterExpression(JavaParser.ExpressionContext ctx) {
+
+        if(exp&&ctx.AND()==null&&ctx.OR()==null){//exp true and does not contain and ,or
+
+            c++;
+
+            rewriter.insertBefore(ctx.getStart(),"(check("+c+")||");// write number of expr visited
+
+            rewriter.insertAfter(ctx.getStop(),")");
+
+            exp=false;
+
+            if(ctx.getText().charAt(0)=='(')exp=true;
+        }
+    }
 
 }
